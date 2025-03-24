@@ -1,0 +1,22 @@
+FROM eclipse-temurin:17-jdk
+
+WORKDIR /app
+
+# Устанавливаем Maven
+RUN apt update && apt install -y maven
+
+COPY . .
+
+RUN mvn dependency:go-offline
+
+# Сборка проекта
+RUN mvn clean package -DskipTests
+
+# Копируем JAR из builder-контейнера
+COPY /app/target/*.jar /app/app.jar
+
+# Даем права на выполнение
+RUN chmod 755 /app/app.jar
+
+# 🔥 Запуск приложения
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

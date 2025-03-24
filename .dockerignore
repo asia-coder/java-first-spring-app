@@ -1,0 +1,42 @@
+# Ignore version control directories
+.git/
+.gitignore
+
+# Ignore IDE and editor files
+.idea/
+*.swp
+*.swo
+
+# Ignore build outputs and temporary files
+target/
+*.class
+dist/
+build/
+out/
+tmp/
+temp/
+*.tmp
+
+# Ignore test files
+test/
+tests/
+
+# Ignore environment and secret files
+.env*
+*.env
+*.pem
+*.key
+*.crt
+
+# Ignore documentation and markdown files
+*.md
+README*
+
+# Ignore Docker-related files
+Dockerfile*
+docker-compose*
+
+
+# Ignore empty directories
+src/main/resources/static/
+src/main/resources/templates/
