@@ -1,11 +1,11 @@
 services:
   app:
     restart: always
-    env_file:
+    env_file: !override
       - .env.prod
     command: ["java", "-jar", "app.jar"]
 
   postgres:
     restart: always
-    env_file:
+    env_file: !override
       - .env.prod
