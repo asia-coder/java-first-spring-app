@@ -14,7 +14,7 @@ This project is configured to run using Docker and Docker Compose. Follow the st
 1. Clone the repository and navigate to the project directory.
 2. Build and start the services using Docker Compose:
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 3. Access the application at `http://localhost:8080`.
 
