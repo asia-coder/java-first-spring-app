@@ -1,3 +1,4 @@
+name: "spring-app"
 services:
   postgres:
     image: postgres:17
@@ -9,11 +10,11 @@ services:
       - todo_network
     volumes:
       - pgdata:/var/lib/postgresql/data
-    env_file:
-      - .env
 
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       SPRING_PROFILES_ACTIVE: production
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-todo_db}
@@ -25,8 +26,6 @@ services:
       - todo_network
     depends_on:
       - postgres
-    env_file:
-      - .env
 
 volumes:
   pgdata:
